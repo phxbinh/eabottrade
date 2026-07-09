@@ -9,7 +9,7 @@ import { CsvFeed } from "@feed/CsvFeed";
 
 import { CsvMapper } from "@csv/CsvMapper";
 
-import { HistoryBuffer } from "@history/HistoryBuffer";
+import { HistoryBuffer } from "@bufferHistory/BufferHistory";
 
 const BUFFER_CAPACITY = 50;
 
