@@ -31,7 +31,7 @@ const engine = new TradingEngine({
 await engine.run(feed);
 ```
 
-```c++
+```cpp
 //*.mq5
 
 BrokerFeed feed;
