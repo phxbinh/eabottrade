@@ -51,6 +51,45 @@ export function parseTimestamp(value: string): number {
 }
 
 
+/*
+  let buffer = "";
+    const preview: Candle[] = [];
+    let firstLine = true;
+    let delimiter = "";
+
+    while (true) {
+      const { value, done } = await reader.read();
+
+      if (done) break;
+
+      buffer += value;
+
+      const lines = buffer.split(/\r?\n/);
+
+      buffer = lines.pop() ?? "";
+
+      for (const line of lines) {
+        if (!line.trim()) continue;
+
+  // Tự động phát hiện dấu phân cách từ dòng header đầu tiên
+  if (firstLine) {
+    if (line.includes(";")) {
+      delimiter = ";";
+    } else {
+      delimiter = ",";
+    }
+    firstLine = false;
+    continue; // Bỏ qua dòng header
+  }
+
+  // Sử dụng delimiter đã tìm được
+  const cols = line.split(delimiter);
+
+
+
+*/
+
+
 export class CsvMapper {
   /**
    * Convert one CSV line into a Candle.
@@ -63,8 +102,17 @@ export class CsvMapper {
    *
    * 2004-06-11 07:18:00,384.0,384.1,384.0,384.0,3
    */
+  
   map(line: string): Candle {
-    const cols = line.split(",");
+
+    let delimiter = "";
+
+    if (line.includes(";")) {
+      delimiter = ";";
+    } else {
+      delimiter = ",";
+    }
+    const cols = line.split(delimiter);
 
     if (cols.length !== 6) {
       throw new Error(
