@@ -28,7 +28,7 @@
       /* 2. Tang Logic & Ha tang */
       "@lib/*": ["./src/lib/*"],
       "@hooks/*": ["./src/hooks/*"],
-      "@services/*": ["./src/services/*"],
+      "@trading/csv/*": ["./src/trading/core/csv/*"],
       "@trading/feed/*": ["./src/trading/core/feed/*"],
       "@trading/models/*": ["./src/trading/core/models/*"],
 
