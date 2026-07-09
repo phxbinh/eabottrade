@@ -30,7 +30,7 @@
       "@hooks/*": ["./src/hooks/*"],
       "@services/*": ["./src/services/*"],
       "@types/*": ["./src/types/*"],
-      "@const/*": ["./src/constants/*"],
+      "@interfaces/*": ["./src/interfaces/*"],
 
       /* 3. Tang Tinh nang (Colocation) */
       "@orders/*": ["./src/app/(dashboard)/orders/_components/*"],
