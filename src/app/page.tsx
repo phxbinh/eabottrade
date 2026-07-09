@@ -35,6 +35,16 @@ const routes = [
 - 🔸path: /bufferHistory`,
     status: 'demo',
   },
+  {
+    href: '/buffer',
+    title: 'Kiểm tra logic: chạy BufferHistory',
+    summary:
+      `Sprint 1: BufferHistory.
+*✳️ Khởi tạo BufferHistory.
+- 🔸lib: src/trading/core/...
+- 🔸path: /buffer`,
+    status: 'demo',
+  },
 ];
 
 
