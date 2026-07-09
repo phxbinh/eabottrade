@@ -32,6 +32,7 @@
       "@feed/*": ["./src/trading/core/feed/*"],
       "@models/*": ["./src/trading/core/models/*"],
       "@bufferHistory/*": ["./src/trading/core/bufferHistory/*"],
+      "@indicators/*": ["./src/trading/core/indicators/*"],
 
       /* 3. Tang Tinh nang (Colocation) */
       "@orders/*": ["./src/app/(dashboard)/orders/_components/*"],
