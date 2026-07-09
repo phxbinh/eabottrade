@@ -41,6 +41,29 @@ export default function HomePage() {
   );
 }
 
+export default function HomePage() {
+  return (
+    <div style={containerStyle}>
+      <h1 style={headingStyle}>AI Playground</h1>
+
+      <div style={listStyle}>
+        {routes.map((route) => (
+          <Link key={route.href} href={route.href} style={cardStyle}>
+            <div style={cardHeaderStyle}>
+              <span>{route.title}</span>
+              <span style={badgeStyle(route.status)}>
+                {route.status}
+              </span>
+            </div>
+
+            <p style={summaryStyle}>{route.summary}</p>
+          </Link>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 const containerStyle: React.CSSProperties = {
   padding: '40px',
   minHeight: '100vh',
@@ -80,6 +103,7 @@ const summaryStyle: React.CSSProperties = {
   margin: 0,
   color: '#666',
   lineHeight: 1.5,
+  whiteSpace: "pre-line",
 };
 
 const badgeStyle = (status: string): React.CSSProperties => ({
@@ -88,7 +112,3 @@ const badgeStyle = (status: string): React.CSSProperties => ({
   fontSize: '12px',
   border: '1px solid #ccc',
 });
-
-
-
-
