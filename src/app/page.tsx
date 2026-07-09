@@ -45,6 +45,16 @@ const routes = [
 - 🔸path: /buffer`,
     status: 'demo',
   },
+  {
+    href: '/indecators',
+    title: 'Kiểm tra logic: Tisnh toán các chỉ số',
+    summary:
+      `Sprint 1: Kiểm tra tính toán các chỉ số.
+*✳️ Khởi tạo indecators: EMA RSI.
+- 🔸lib: src/trading/core/...
+- 🔸path: /indecators`,
+    status: 'demo',
+  },
 ];
 
 
