@@ -17,31 +17,49 @@ import { Candle } from "../models/Candle";
  * - calculate indicators
  * - generate signals
  * - execute trades
+ *
+ * Lifecycle:
+ *
+ *   open()
+ *      ↓
+ *   next()
+ *      ↓
+ *   next()
+ *      ↓
+ *   ...
+ *      ↓
+ *   close()
  */
 export interface Feed {
   /**
    * Opens the data source.
    *
    * Must be called before next().
+   *
+   * Calling open() multiple times should have no side effects.
    */
   open(): Promise<void>;
 
   /**
    * Releases all resources.
    *
-   * After close(), next() must throw.
+   * Safe to call multiple times.
    */
   close(): Promise<void>;
 
   /**
    * Restart reading from the beginning.
+   *
+   * Keeps the feed opened.
    */
   reset(): Promise<void>;
 
   /**
    * Returns the next completed candle.
    *
-   * Returns null when no more candles exist.
+   * Returns:
+   * - Candle : next candle
+   * - null   : end of data
    */
   next(): Promise<Candle | null>;
 
