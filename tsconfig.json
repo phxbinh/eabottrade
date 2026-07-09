@@ -29,8 +29,8 @@
       "@lib/*": ["./src/lib/*"],
       "@hooks/*": ["./src/hooks/*"],
       "@services/*": ["./src/services/*"],
-      "@types/*": ["./src/types/*"],
-      "@models/*": ["./src/trading/core/models/*"],
+      "@trading/feed/*": ["./src/trading/core/feed/*"],
+      "@trading/models/*": ["./src/trading/core/models/*"],
 
       /* 3. Tang Tinh nang (Colocation) */
       "@orders/*": ["./src/app/(dashboard)/orders/_components/*"],
