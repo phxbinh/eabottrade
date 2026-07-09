@@ -19,10 +19,20 @@ const routes = [
     href: '/candles-feed',
     title: 'Kiểm tra logic: lấy dữ liệu từ csv',
     summary:
-      `Lấy dữ liệu từ csv.
+      `Sprint 1: Lấy dữ liệu từ csv.
 *✳️ Khởi tạo các interface.
 - 🔸lib: src/trading/core/...
 - 🔸path: /candles-feed`,
+    status: 'demo',
+  },
+  {
+    href: '/bufferHistory',
+    title: 'Kiểm tra logic: chạy BufferHistory',
+    summary:
+      `Sprint 1: BufferHistory.
+*✳️ Khởi tạo BufferHistory.
+- 🔸lib: src/trading/core/...
+- 🔸path: /bufferHistory`,
     status: 'demo',
   },
 ];
