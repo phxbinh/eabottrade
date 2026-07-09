@@ -2,10 +2,10 @@
 
 import { useState } from "react";
 
-import { Candle } from "@/trading/models/Candle";
-import { StreamCsvReader } from "@/trading/feed/StreamCsvReader";
-import { CsvFeed } from "@/trading/feed/CsvFeed";
-import { CsvMapper } from "@/trading/csv/CsvMapper";
+import { Candle } from "@/models/Candle";
+import { StreamCsvReader } from "@/feed/StreamCsvReader";
+import { CsvFeed } from "@/feed/CsvFeed";
+import { CsvMapper } from "@/csv/CsvMapper";
 
 export default function TradeCsvPage() {
   const [loading, setLoading] = useState(false);
