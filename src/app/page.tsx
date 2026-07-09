@@ -15,7 +15,16 @@ const routes = [
 - 🔸path: /EA1`,
     status: 'demo',
   },
-  
+  {
+    href: '/candles-feed',
+    title: 'Kiểm tra logic: lấy dữ liệu từ csv',
+    summary:
+      `Lấy dữ liệu từ csv.
+*✳️ Khởi tạo các interface.
+- 🔸lib: src/trading/core/...
+- 🔸path: /candles-feed`,
+    status: 'demo',
+  },
 ];
 
 
