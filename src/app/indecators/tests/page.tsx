@@ -9,7 +9,8 @@ import { CsvFeed } from "@feed/CsvFeed";
 
 import { CsvMapper } from "@csv/CsvMapper";
 
-import { HistoryBuffer } from "@bufferHistory/BufferHistory";
+//src/trading/core/bufferHistory/BufferHistory-Indecators.ts
+import { HistoryBuffer } from "@bufferHistory/BufferHistory-Indecators";
 
 import { RSIStream } from "@indicators/RSIStream";
 import { MACDStream } from "@indicators/MACDStream";
