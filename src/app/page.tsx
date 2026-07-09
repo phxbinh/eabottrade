@@ -1,161 +1,27 @@
+
+
 // app/page.tsx
-/*
-import React from 'react';
-
-export default function HomePage() {
-  return (
-    <div style={containerStyle}>
-      <h1 style={headingStyle}>Hello world</h1>
-    </div>
-  );
-}
-
-// Cấu hình style cơ bản cho đẹp mắt
-const containerStyle: React.CSSProperties = {
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
-  height: '100vh',
-  backgroundColor: '#f0f2f5',
-  fontFamily: 'system-ui, sans-serif',
-};
-
-const headingStyle: React.CSSProperties = {
-  fontSize: '3rem',
-  color: '#333',
-  fontWeight: 'bold',
-};
-*/
-
-// app/page.tsx -> 🟢chatGPT thiết kế
 import Link from 'next/link';
 import React from 'react';
 
 const routes = [
   {
-    href: '/chat-langgraph',
-    title: 'LangGraph route',
+    href: '/EA1',
+    title: 'EA bot backtest',
     summary:
-      `LangGraph route state tool.
-Luồng logic gọi tool được xác định sẵn.
-Kiều trả về chưa phải kiểu stream, mà là Responsive thông thường của fetch.
-*✳️ Khai báo các tools sau đó addNode và addEdge với graph.
+      `KHỞI TẠO EA BACKTEST
+*✳️ Khởi tạo các interface.
 - 🔸lib: src/lib/ai/...
-- 🔸path: /chat-langgraph`,
-    status: 'test',
+- 🔸path: /EA1`,
+    status: 'demo',
   },
-  {
-    href: '/chat-langgraph-check',
-    title: 'LangGraph route UIStream',
-    summary:
-      `LangGraph route state tool, gọi stream UI.
-Luồng logic gọi tool được xác định sẵn.
-Kiểu trả về toUIMessageStreamResponse.
-\n*✳️ Khai báo các tools sau đó addNode và addEdge với graph.
-\n- 🔸lib: src/lib/ai/...
-\n- 🔸path: /chat-langgraph-check
-`,
-    status: 'test',
-  },
-  {
-    href: '/agent-langgraph',
-    title: 'Agent - LangGraph Tự gọi tool',
-    summary:
-      `LangGraph tự gọi tool.
-Agent AI tự gọi tool và trả về createUIMessageStreamResponse.
-Khai báo các tools, sau đó:
-* ✳️ Gọi trong createReactAgent.
-- 🔸lib: src/lib/agent-langgraph/...
-- 🔸path: /agent-langgraph
-`,
-    status: 'test',
-  },
-  {
-    href: '/ai-agent',
-    title: 'Chát bót thường',
-    summary:
-      `Chỉ là chát đơn thuần sử dụng gemini.
-- 🔸lib: app/api/chat
-- 🔸path: app/ai-agent 
-`,
-    status: 'done',
-  },
-  {
-    href: '/chat-tool',
-    title: 'AI Agent with Chat Tool',
-    summary:
-      `Tạo các tool đặt ngay trong tools, và return result.toUIMessageStreamResponse() trả kết quả về cho UI có sử dụng useChat của ai.
--> Không sử dụng langchain langgraph.
--> Chỉ sử dụng ai ai-sdk/... và gemini.
-- 🔸lib: app/api/chat-tool 
-- 🔸path: app/chat-tool 
-`,
-    status: 'done',
-  },
-  {
-    href: '/ai-hybrid-chat',
-    title: 'Dùng tool tạo params',
-    summary:
-      `Tạo các tool đặt ngay trong tools, và return result.toUIMessageStreamResponse() trả kết quả về cho UI có sử dụng useChat của ai.
--> 📍 Có dùng một tool để tạo params từ câu hỏi của user.
--> Không sử dụng langchain langgraph.
--> Chỉ sử dụng ai ai-sdk/... và gemini.
-- 🔸lib: app/api/ai-hybrid-chat 
-- 🔸path: app/ai-hybrid-chat
-`,
-    status: 'testing',
-  },
-  {
-    href: '/vercel-guides',
-    title: 'Vercel AI SDK Guide',
-    summary:
-      'Playground để test các pattern từ Vercel AI SDK v6 (streamText, generateText, tools).',
-    status: 'done',
-  },
-  {
-    href: '/langchain-sdk',
-    title: 'LangChain SDK',
-    summary:
-      `🪲Thử nghiệm agent/tool orchestration bằng LangChain với custom tools.
--> Sử dụng DynamicTool của @langchain/core/tools để tạo tool.
--> Chỉ thử nghiệm đơn thuần thay thế hàm tool của ai bằng DynamicTool để tạo tool.
-- 🔸lib: app/api/langchain-sdk 
-- 🔸path: app/langchain-sdk
-`,
-    status: 'testing',
-  },
-  {
-    href: '/use-gemini-in-langchain',
-    title: 'Gemini + LangChain',
-    summary:
-      `Tích hợp Gemini model vào LangChain để test reasoning + tool execution.
--> Dùng tính năng gọi model llm của langchain để xử lý kết quả cuối cùng trước khi trả kết quả về cho UI.
--> Không thấy hiệu quả, làm tăng token
-- 🔸lib: app/api/langchain-sdk/use-gemini-in-langchain
-- 🔸path: app/use-gemini-in-langchain
-`,
-    status: 'draft',
-  },
-{
-    href: '/test-agent-langchain',
-    title: 'Agent Langchain guide from web',
-    summary:
-      'Agent đơn giản hướng dẫn từ langchain web, (grok,chatGPT, gemini)',
-    status: 'done',
-  },
-{
-    href: '/chat-langgraph-agent-child',
-    title: 'Tạo Agent cha (graph) agent con (createReactAgent)',
-    summary:
-      'Agent cha (detectIntent), con tự gọi tool',
-    status: 'done',
-  },
+  
 ];
 
 export default function HomePage() {
   return (
     <div style={containerStyle}>
-      <h1 style={headingStyle}>AI Playground</h1>
+      <h1 style={headingStyle}>EA Trade TS - MT5</h1>
 
       <div style={listStyle}>
         {routes.map((route) => (
