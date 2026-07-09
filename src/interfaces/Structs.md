@@ -31,7 +31,9 @@ const engine = new TradingEngine({
 await engine.run(feed);
 ```
 
-```mq5
+```c++
+//*.mq5
+
 BrokerFeed feed;
 TradingEngine engine(strategy);
 
