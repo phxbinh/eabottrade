@@ -18,28 +18,6 @@ const routes = [
   
 ];
 
-export default function HomePage() {
-  return (
-    <div style={containerStyle}>
-      <h1 style={headingStyle}>EA Trade TS - MT5</h1>
-
-      <div style={listStyle}>
-        {routes.map((route) => (
-          <Link key={route.href} href={route.href} style={cardStyle}>
-            <div style={cardHeaderStyle}>
-              <span>{route.title}</span>
-              <span style={badgeStyle(route.status)}>
-                {route.status}
-              </span>
-            </div>
-
-            <p style={summaryStyle}>{route.summary}</p>
-          </Link>
-        ))}
-      </div>
-    </div>
-  );
-}
 
 export default function HomePage() {
   return (
