@@ -17,6 +17,10 @@ import { MACDStream } from "@indicators/MACDStream";
 import { explainSignal } from "@indicators/ExplainSignal";
 import { TradeChart } from "./components/TradeChart";
 
+// 45
+import { EMAStream } from "@indicators/EMAStream";
+import { ADXStream } from "@indicators/ADXStream";
+
 // Load file từ trong dự án.
 import { CSV_DATASETS, type CsvDataset } from "@data/csvDatasets";
 
@@ -25,6 +29,11 @@ const RSI_PERIOD = 14;
 const MACD_FAST = 12;
 const MACD_SLOW = 26;
 const MACD_SIGNAL = 9;
+
+// 45
+const EMA20_PERIOD = 20;
+const EMA50_PERIOD = 50;
+const ADX_PERIOD = 14;
 
 export default function TradeCsvPage() {
   const historyRef = useRef<HistoryBuffer<CandleRow>>(
@@ -36,6 +45,10 @@ export default function TradeCsvPage() {
 
   const rsiStreamRef = useRef<RSIStream | null>(null);
   const macdStreamRef = useRef<MACDStream | null>(null);
+// 45
+const ema20StreamRef = useRef<EMAStream | null>(null);
+const ema50StreamRef = useRef<EMAStream | null>(null);
+const adxStreamRef = useRef<ADXStream | null>(null);
 
   const autoPlayRef = useRef(false);
 
@@ -70,18 +83,24 @@ async function selectDataset(dataset: CsvDataset) {
   }
 }
 
-
-
-
-
   function refresh() {
     forceUpdate((v) => v + 1);
   }
 
+/*
   function resetIndicatorStreams() {
     rsiStreamRef.current = new RSIStream(RSI_PERIOD);
     macdStreamRef.current = new MACDStream(MACD_FAST, MACD_SLOW, MACD_SIGNAL);
   }
+*/
+function resetIndicatorStreams() {
+  rsiStreamRef.current = new RSIStream(RSI_PERIOD);
+  macdStreamRef.current = new MACDStream(MACD_FAST, MACD_SLOW, MACD_SIGNAL);
+  ema20StreamRef.current = new EMAStream(EMA20_PERIOD);
+  ema50StreamRef.current = new EMAStream(EMA50_PERIOD);
+  adxStreamRef.current = new ADXStream(ADX_PERIOD);
+}
+
 
   async function handleFile(e: React.ChangeEvent<HTMLInputElement>) {
     const file = e.target.files?.[0];
@@ -142,6 +161,7 @@ async function selectDataset(dataset: CsvDataset) {
     refresh();
   }
 
+/*
   function pushOne(candle: {
     time: number;
     open: number;
@@ -158,6 +178,46 @@ async function selectDataset(dataset: CsvDataset) {
     const row: CandleRow = { ...candle, rsi, macd, signal, histogram };
     historyRef.current.push(row);
   }
+*/
+function pushOne(candle: {
+  time: number;
+  open: number;
+  high: number;
+  low: number;
+  close: number;
+  volume: number;
+}) {
+  const rsi = rsiStreamRef.current!.update(candle.close);
+  const { macd, signal, histogram } = macdStreamRef.current!.update(
+    candle.close
+  );
+  const ema20 = ema20StreamRef.current!.update(candle.close);
+  const ema50 = ema50StreamRef.current!.update(candle.close);
+  const { plusDI, minusDI, adx } = adxStreamRef.current!.update(
+    candle.high,
+    candle.low,
+    candle.close
+  );
+
+  const row: CandleRow = {
+    ...candle,
+    rsi,
+    macd,
+    signal,
+    histogram,
+    ema20,
+    ema50,
+    plusDI,
+    minusDI,
+    adx,
+  };
+
+  historyRef.current.push(row);
+}
+
+
+
+
 
   async function read(limit?: number) {
     if (!feedRef.current) return;
