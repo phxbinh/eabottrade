@@ -24,13 +24,13 @@ interface TradeChartProps {
 }
 
 // Đặt ngoài component — build danh sách marker từ rows
-function buildMarkers(rows: CandleRow[]): SeriesMarker<Time>[] {
-  const markers: SeriesMarker<Time>[] = [];
+function buildMarkers(rows: CandleRow[]): SeriesMarker<UTCTimestamp>[] {
+  const markers: SeriesMarker<UTCTimestamp>[] = [];
 
   for (let i = 1; i < rows.length; i++) {
     const prev = rows[i - 1];
     const curr = rows[i];
-    const time = (curr.time / 1000) as Time;
+    const time = (curr.time / 1000) as UTCTimestamp;
 
     // Golden / Death cross (EMA nhanh cắt EMA chậm)
     if (
