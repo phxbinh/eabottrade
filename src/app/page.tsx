@@ -87,14 +87,14 @@ const routes = [
     status: 'demo',
   },
   {
-    href: '/rsi-ema-adx-macd',
+    href: '/rsi-ema-cdx-macd',
     title: 'Kiểm tra UI: Hiển thị các chỉ số lên chart',
     summary:
       `Sprint 1: UI hiển thị chỉ số lên chart.
 🧩Chọn file ngay trong dự án.
 *✳️ Khởi tạo indecators: RSI, EMA, ADX, MACD.
 - 🔸lib: src/trading/core/...
-- 🔸path: /rsi-ema-adx-macd`,
+- 🔸path: /rsi-ema-cdx-macd`,
     status: 'demo',
   },
 ];
