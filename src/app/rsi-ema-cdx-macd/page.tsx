@@ -14,7 +14,8 @@ import { HistoryBuffer } from "@bufferHistory/BufferHistory-Indecators";
 
 import { RSIStream } from "@indicators/RSIStream";
 import { MACDStream } from "@indicators/MACDStream";
-import { explainSignal } from "@indicators/ExplainSignal";
+
+import { explainSignal, type SignalSnapshot } from "@indicators/ExplainSignal-indecators";
 import { TradeChart } from "./components/TradeChart";
 
 // 45
@@ -34,6 +35,21 @@ const MACD_SIGNAL = 9;
 const EMA20_PERIOD = 20;
 const EMA50_PERIOD = 50;
 const ADX_PERIOD = 14;
+
+
+// ... trong phần render, thay chỗ gọi explainSignal cũ:
+
+// ExpainSignal.ts
+function toSnapshot(row: CandleRow | undefined): SignalSnapshot {
+  return {
+    rsi: row?.rsi ?? null,
+    histogram: row?.histogram ?? null,
+    ema20: row?.ema20 ?? null,
+    ema50: row?.ema50 ?? null,
+    adx: row?.adx ?? null,
+  };
+}
+
 
 export default function TradeCsvPage() {
   const historyRef = useRef<HistoryBuffer<CandleRow>>(
@@ -350,6 +366,7 @@ function pushOne(candle: {
         <span>Buffer: <b>{history.size}/{history.capacity}</b></span>
       </div>
 
+{/*
       {rows.length > 0 && (
         <>
           <TradeChart rows={rows} />
@@ -366,6 +383,29 @@ function pushOne(candle: {
           </div>
         </>
       )}
+*/}
+{rows.length > 0 && (
+  <>
+    <TradeChart rows={rows} />
+
+    <div
+      style={{
+        padding: 12,
+        background: "#f5f5f5",
+        borderRadius: 8,
+        fontSize: 15,
+      }}
+    >
+      {explainSignal(
+        toSnapshot(latest),
+        rows.length >= 2 ? toSnapshot(rows[rows.length - 2]) : null
+      )}
+    </div>
+  </>
+)}
+
+
+
 
 {/* Hiển thị liên kết đến tradingview.com
 Nằm trong điều khoản sử dụng thư viện và bản quyền
