@@ -366,6 +366,23 @@ function pushOne(candle: {
           </div>
         </>
       )}
+
+{/* Hiển thị liên kết đến tradingview.com
+Nằm trong điều khoản sử dụng thư viện và bản quyền
+*/}
+<footer style={{ fontSize: 11, color: "#999", padding: "8px 0", textAlign: "center" }}>
+  Chart powered by{" "}
+  <a
+    href="https://www.tradingview.com/"
+    target="_blank"
+    rel="noopener noreferrer"
+    style={{ color: "#999" }}
+  >
+    TradingView Lightweight Charts™
+  </a>
+</footer>
+
+
     </div>
   );
 }
