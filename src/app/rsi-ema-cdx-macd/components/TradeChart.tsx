@@ -55,6 +55,7 @@ const adxSeriesRef = useRef<ISeriesApi<"Line"> | null>(null);
       layout: {
         background: { type: ColorType.Solid, color: "#ffffff" },
         textColor: "#333",
+        attributionLogo: false,
       },
       grid: {
         vertLines: { color: "#eee" },
