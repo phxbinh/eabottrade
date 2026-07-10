@@ -234,7 +234,7 @@ adxSeriesRef.current?.setData(
         </p>
         <div ref={macdContainerRef} />
       </div>
-// Trong JSX, thêm pane mới sau pane MACD:
+{/*// Trong JSX, thêm pane mới sau pane MACD:*/}
 <div>
   <p style={{ margin: "8px 0 4px", fontSize: 13, color: "#666" }}>
     ADX(14)
