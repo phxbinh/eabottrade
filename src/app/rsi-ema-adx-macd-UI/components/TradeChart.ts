@@ -14,7 +14,7 @@ import {
   ISeriesMarkersPluginApi,
   SeriesMarker,
   UTCTimestamp,
-  Time
+  Time,
 } from "lightweight-charts";
 
 import { CandleRow } from "@models/CandleRow";
@@ -24,8 +24,8 @@ interface TradeChartProps {
 }
 
 // Đặt ngoài component — build danh sách marker từ rows
-function buildMarkers(rows: CandleRow[]): SeriesMarker<UTCTimestamp>[] {
-  const markers: SeriesMarker<UTCTimestamp>[] = [];
+function buildMarkers(rows: CandleRow[]): SeriesMarker<Time>[] {
+  const markers: SeriesMarker<Time>[] = [];
 
   for (let i = 1; i < rows.length; i++) {
     const prev = rows[i - 1];
@@ -111,7 +111,7 @@ const adxSeriesRef = useRef<ISeriesApi<"Line"> | null>(null);
   const signalLineSeriesRef = useRef<ISeriesApi<"Line"> | null>(null);
   const histogramSeriesRef = useRef<ISeriesApi<"Histogram"> | null>(null);
 
-const seriesMarkersRef = useRef<ISeriesMarkersPluginApi<UTCTimestamp> | null>(
+const seriesMarkersRef = useRef<ISeriesMarkersPluginApi<Time> | null>(
   null
 );
 
