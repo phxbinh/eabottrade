@@ -51,7 +51,9 @@
     "metaapi.cloud-sdk": "^29.0.0",
     "dotenv": "^16.4.7",
     
-    "papaparse": "^5.5.3"
+    "papaparse": "^5.5.3",
+    "lightweight-charts": "^5.2.0"
+
   },
   "devDependencies": {
     "@types/node": "^22.7.4",
