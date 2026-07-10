@@ -57,12 +57,22 @@ const routes = [
   },
   {
     href: '/indecators/tests',
-    title: 'Kiểm tra logic: Tisnh toán các chỉ số',
+    title: 'Kiểm tra logic: Tính toán các chỉ số',
     summary:
       `Sprint 1: Kiểm tra tính toán các chỉ số.
 *✳️ Khởi tạo indecators: EMA RSI.
 - 🔸lib: src/trading/core/...
 - 🔸path: /indecators/tests`,
+    status: 'demo',
+  },
+  {
+    href: '/training-guide',
+    title: 'Kiểm tra UI: Hiển thị chart',
+    summary:
+      `Sprint 1: UI hiển thị chart.
+*✳️ Khởi tạo indecators: EMA RSI.
+- 🔸lib: src/trading/core/...
+- 🔸path: /training-guide`,
     status: 'demo',
   },
 ];
