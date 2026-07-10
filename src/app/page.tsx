@@ -75,6 +75,17 @@ const routes = [
 - 🔸path: /training-guide`,
     status: 'demo',
   },
+  {
+    href: '/training-guide-files',
+    title: 'Kiểm tra UI: Hiển thị chart chọn file trong dự án',
+    summary:
+      `Sprint 1: UI hiển thị chart.
+🧩Chọn file ngay trong dự án.
+*✳️ Khởi tạo indecators: EMA RSI.
+- 🔸lib: src/trading/core/...
+- 🔸path: /training-guide-files`,
+    status: 'demo',
+  },
 ];
 
 
